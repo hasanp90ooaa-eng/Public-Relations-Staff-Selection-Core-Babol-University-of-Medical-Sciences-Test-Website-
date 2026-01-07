@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>سامانه روابط عمومی | هسته گزینش کارکنان</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: "Tahoma", "IRANSans", Arial, sans-serif;
+      background: linear-gradient(135deg, #0f4c75, #3282b8);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+    .card {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      padding: 30px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .header h1 {
+      font-size: 18px;
+      margin: 0 0 8px 0;
+      color: #0f4c75;
+    }
+    .header p {
+      font-size: 13px;
+      color: #666;
+      margin: 0;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 13px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #0f4c75;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0b3c5d;
+    }
+    .error {
+      margin-top: 15px;
+      color: #c0392b;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+    .hidden {
+      display: none;
+    }
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="loginPage">
+    <div class="header">
+      <h1>سامانه شخصی روابط عمومی</h1>
+      <p>هسته گزینش کارکنان دانشگاه علوم پزشکی بابل</p>
+    </div>
+
+    <label for="username">نام کاربری</label>
+    <input type="text" id="username" placeholder="نام کاربری را وارد کنید" />
+
+    <label for="password">رمز عبور</label>
+    <input type="password" id="password" placeholder="رمز عبور را وارد کنید" />
+
+    <button onclick="login()">ورود به سامانه</button>
+
+    <div class="error" id="loginError">نام کاربری یا رمز عبور شما اشتباه است</div>
+
+    <div class="footer">دانشگاه علوم پزشکی بابل</div>
+  </div>
+
+  <div class="card hidden" id="uploadPage">
+  <div id="74571059802"><script type="text/JavaScript" src="https://www.aparat.com/embed/prb54km?data[rnddiv]=74571059802&data[responsive]=yes"></script></div><br>
+    <div class="header">
+      <h1>آپلود ویدیو</h1>
+      <p>ویژه روابط عمومی هسته گزینش کارکنان</p>
+    </div>
+
+    <label for="videoFile">انتخاب فایل ویدیو</label>
+    <input type="file" id="videoFile" accept="video/*" />
+
+    <button onclick="uploadVideo()">آپلود ویدیو</button>
+
+    <div class="error" id="uploadMessage" style="display:block;color:#2c7be5;"></div>
+
+    <div class="footer">کاربر گرامی، فقط ویدیوهای مجاز خبری بارگذاری شود</div><br>
+   <a href="https://www.aparat.com/v/prb54km?refererRef=channel_page" >در صورت باز نشدن ویدیو کیلیک کنید</a>
+  </div><br>
+
+
+  <script>
+   
+    window.onload = function() {
+      alert("این سایت فقط جنبه آزمایشی دارد و تمامی حقوق مادی و معنوی آن متعلق به شخص سازنده و روابط عمومی هسته گزینش کارکنان دانشگاه علوم پزشکی بابل می‌باشد.");
+    }
+
+    const VALID_USERNAME = "138484kK";
+    const VALID_PASSWORD = "138484kK";
+
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("uploadPage").classList.remove("hidden");
+      } else {
+        document.getElementById("loginError").style.display = "block";
+      }
+    }
+
+    function uploadVideo() {
+      const fileInput = document.getElementById("videoFile");
+      const message = document.getElementById("uploadMessage");
+
+      if (!fileInput.files.length) {
+        message.style.color = "#c0392b";
+        message.innerText = "لطفاً یک فایل ویدیو انتخاب کنید";
+        return;
+      }
+
+      message.style.color = "#27ae60";
+      message.innerText = "ویدیو با موفقیت انتخاب شد )";
+    }
+  </script>
+
+</body>
+</html>
